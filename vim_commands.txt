@@ -1,0 +1,70 @@
+# Commands
+
+h - Move left
+j - Move Down
+k - Move Up
+l - Move Right
+
+dd - delete line
+x - delete one character
+
+i - go to insert mode at current cursor postion
+I - insert mode at beginng of current line
+a - go to insert mode at current position + 1
+A - got insert mode at end of current line
+
+u - undo
+Ctrl + r - redo
+
+p - paste
+P - paste above
+
+o - add newline below cursor and change to insert mode
+O - add newline below above and change to insert mode
+
+## Vertical Movement
+
+gg - Takes you to top of file
+G - Takes you to bottom of file
+{ - Move up a block of code
+} - Move down a block of code
+zz - center view around your cursor
+% - Move to closing parenthesis or bracket
+
+## Horizontal Movement
+
+w - jump horizontally right
+b - jump horizontally left
+V - enter Visual mode
+0w / ^ - first word of current line
+t - go to one before a certain character
+f - go to certain character
+
+##Useful Combinations
+
+0w - jump to first word of current line
+d} - delete entire block
+
+V - enter visual line mode
+d% when on a parenthesis or bracket will delete everything between
+
+cw - change current word (will delete word and switch to insert mode)
+dw - delete current word
+D - delete from cursor to end of line
+C - (Does above & drops into insert mode)
+ct(char) - delete up to char and go to insert mode
+dt(char) - delete up to char
+
+* - jump to locations where certain word is being used
+
+; - jump to next location of current char on current line
+
+~ - swap case of current character
+5~ - swap case of next 5 characters
+
+. - redo the last command sequence you did
+
+v - highlight
+vw - highlight current word
+v + w + Cmd D + c - will put a cursor at all highlighted instances of that word
+v + w + y + p - will copy highlighted word and p will paste in new location
