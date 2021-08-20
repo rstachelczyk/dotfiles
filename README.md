@@ -6,3 +6,15 @@ VS Code Keyboard Mappings
 | ---        | ---     |
 | Alt + Down | Alt + j |
 | Alt + Up   | Alt + k |
+
+`
+{
+  "vim.useSystemClipboard": true,
+  "vim.insertModeKeyBindings": [
+      {
+          "before": ["j", "j"],
+          "after": ["<Esc>"]
+      }
+  ]
+}
+`
