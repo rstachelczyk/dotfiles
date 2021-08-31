@@ -24,6 +24,9 @@ O - add newline below above and change to insert mode
 
 ## Vertical Movement
 
+H - Move cursor to top of view
+M - Move cursor to middle of view
+L - Move cursor to bottom of view
 gg - Takes you to top of file
 G - Takes you to bottom of file
 { - Move up a block of code
@@ -34,26 +37,39 @@ zz - center view around your cursor
 ## Horizontal Movement
 
 w - jump horizontally right
+W - jump to next word after space (ignores periods and other symbols)
 b - jump horizontally left
-V - enter Visual mode
+B - same as W but backwards
+e - jump to end of current word
 0w / ^ - first word of current line
 t - go to one before a certain character
 f - go to certain character
+$ - go to end of current line
 
 ##Useful Combinations
 
 0w - jump to first word of current line
 d} - delete entire block
 
+m(key) - create a mark that you can jump back to later
+`(key) - to jump back to a created mark
+
 V - enter visual line mode
 d% when on a parenthesis or bracket will delete everything between
 
-cw - change current word (will delete word and switch to insert mode)
-dw - delete current word
+ciw - change inner word (will delete current word no matter cursor position and switch to insert mode)
+diw - same as above except without insert mode after
+ci( - delete everything in between parenthesis and drop to insert mode
+ci" - delete everything in between quotes and drop to insert mode
+
+cw - change current word (will delete from current cursor to end of word and switch to insert mode)
+dw - delete current word (will delete from current cursor to end of word)
 D - delete from cursor to end of line
 C - (Does above & drops into insert mode)
 ct(char) - delete up to char and go to insert mode
 dt(char) - delete up to char
+cf(char) - delete up to and including char and go to insert mode
+df(char) - delete up to and including char
 
 * - jump to locations where certain word is being used
 
