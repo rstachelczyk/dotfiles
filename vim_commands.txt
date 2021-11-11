@@ -84,3 +84,11 @@ v - highlight
 vw - highlight current word
 v + w + Cmd D + c - will put a cursor at all highlighted instances of that word
 v + w + y + p - will copy highlighted word and p will paste in new location
+
+
+Marks & cursor jumping (** Can use ' instead of ` for these commands **)
+`. - jump to last change
+`` - jump back to where cursor was before last jump (equal to ctrl + I/O)
+g; - jump to previous edited line
+g, - jump through change list
+gi - jump cursor to exact point last edited and put your in insert mode
