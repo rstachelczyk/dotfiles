@@ -92,3 +92,4 @@ Marks & cursor jumping (** Can use ' instead of ` for these commands **)
 g; - jump to previous edited line
 g, - jump through change list
 gi - jump cursor to exact point last edited and put your in insert mode
+gm - jump to middle of current line
