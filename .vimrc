@@ -124,6 +124,8 @@ if has('ide')
 
       " attempt to recreate Cmd + D feature in VSCode
       " vmap <D-d> <C-D-g>
+      vmap <D-d> :action SelectNextOccurrence<CR>
+
 
       " nnoremap <silent> <C-Tab> :action ActivateTerminalToolWindow<CR>
 
