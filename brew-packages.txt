@@ -1,0 +1,7 @@
+Brew packages to install:
+
+git
+zsh-syntax-highlighting
+
+brew install --cask rectangle
+brew install --cask devtoys
