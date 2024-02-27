@@ -85,15 +85,34 @@ vnoremap P "_dP
 
 if has('ide')
   " mappings and options that exist only in IdeaVim
+
+
   map <leader>p <Action>(GotoFile)
   map <leader>f <Action>(FindInPath)
   map <leader>b <Action>(Switcher)
+  nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
+  nnoremap <leader>+ :action OptimizeImports<CR>
+  nnoremap <leader>g :action Generate<CR>
+  nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+  nnoremap ,b :action ToggleLineBreakpoint<CR>
+  nnoremap <Leader>q :action CloseContent<CR>
+  nnoremap <c-z> :action HideAllWindows<CR>
+  nnoremap <c-o> :action OpenFile<CR>
 
-  sethandler <C-K> a:ide
+  "sethandler <c-j> a:vim
+  "sethandler <c-k> a:vim
+
+  "map <c-j> :action EditorDown<CR>
+  "map <c-k> :action EditorUp<CR>
+
+  " lookupkeys are processed by ide during autocompletion & we need to remove <C-J> bc it is there by default
+  " set lookupkeys=<Tab>,<Down>,<Up>,<Enter>,<Left>,<Right>,<C-Down>,<C-Up>,<PageUp>,<PageDown>,<C-Q>
+
+  " Shift between split windows
+  " <ctrl + ww>
 
   if &ide =~? 'intellij idea'
-    if &ide =~? 'community'
-      " some mappings and options for IntelliJ IDEA Community Edition
+      " some mappings and options for IntelliJ IDEA 
 
       " visual select and then S
       set surround
@@ -104,13 +123,21 @@ if has('ide')
       " Make searches case-insensitive
       set ignorecase
 
-      set clipboard+=ideaput
+      set clipboard=unnamedplus,unnamed,ideaput
+
+      set idearefactormode=keep
+
+      set ideajoin
 
       " Java - print
       nmap <leader>jp ddkA<ENTER>System.out.println();<ESC>hi
 
       " Go to implimentation
-      nmap g] :action GotoImplementation<CR>
+      nmap gi :action GotoImplementation<CR>
+      
+      " Navigate Errors
+      nnoremap <leader>ne :action GotoNextError<CR>
+      nnoremap <leader>pe :action GotoPreviousError<CR>
 
       " Comment Line / Selected Lines
       nnoremap <silent> <leader>/ :action CommentByLineComment<CR>
@@ -122,19 +149,24 @@ if has('ide')
       vnoremap <A-j> :action MoveLineDown<CR>
       vnoremap <A-k> :action MoveLineUp<CR>
 
+      " Switch between tabs
+      nnoremap <c-h> :action PreviousTab<CR>
+      nnoremap <c-l> :action NextTab<CR>
+      nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+
       " attempt to recreate Cmd + D feature in VSCode
       " vmap <D-d> <C-D-g>
       vmap <D-d> :action SelectNextOccurrence<CR>
 
+      " Split editor vertically
+      nnoremap <Leader>ss :action SplitVertically<cr>
+      nnoremap <Leader>us :action Unsplit<cr>
 
       " nnoremap <silent> <C-Tab> :action ActivateTerminalToolWindow<CR>
 
       " source ideavimrc file
       nnoremap <leader>si :source ~/.ideavimrc<CR>
 
-    elseif &ide =~? 'ultimate'
-      " some mappings and options for IntelliJ IDEA Ultimate Edition
-    endif
   elseif &ide =~? 'pycharm'
     " PyCharm specific mappings and options
   endif
@@ -142,3 +174,4 @@ else
   " some mappings for Vim/Neovim
   " nnoremap <leader>f <cmd>Telescope find_files<cr>
 endif
+
