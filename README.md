@@ -1,13 +1,18 @@
-# VS-code-settings
-A place for all my VS code settings and keybinds
+# Dotfiles & Config
+A place for all my dotfiles and additional config / notes
 
-VS Code Keyboard Mappings
+vim, zsh, iTerm, VS Code, etc
+
+----------------------------------------------------------------
+
+### VS Code Keyboard Mappings
+
 | From       | To      |
 | ---        | ---     |
 | Alt + Down | Alt + j |
 | Alt + Up   | Alt + k |
 
-`
+```
 {
   "window.zoomLevel": 2,
   "diffEditor.ignoreTrimWhitespace": false,
@@ -168,6 +173,6 @@ VS Code Keyboard Mappings
     }
   ]
 }
-`
+```
 
 
