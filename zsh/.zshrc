@@ -84,6 +84,7 @@ plugins=(git vi-mode)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+bindkey -M viins 'jj' vi-cmd-mode
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
