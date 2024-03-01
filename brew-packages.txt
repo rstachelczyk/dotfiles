@@ -1,5 +1,6 @@
 Brew packages to install:
 
+tmux
 git
 zsh-syntax-highlighting
 

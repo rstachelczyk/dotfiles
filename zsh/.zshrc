@@ -19,12 +19,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-# Set list of themes to pick from when loading at random
-# Setting this variable when ZSH_THEME=random will cause zsh to load
-# a theme from this variable instead of looking in $ZSH/themes/
-# If set to an empty array, this variable will have no effect.
-# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
 
@@ -83,8 +77,6 @@ plugins=(git vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -100,16 +92,36 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-alias ls="colorls --group-directories-first"
-alias lss="/bin/ls"
+
+
+# ---------------------------------------------------------------
+# Config & Alias
+
+bindkey -M viins 'jj' vi-cmd-mode
+
+# Colorls (pretty slow)
+# alias ls="colorls --group-directories-first"
+# alias lss="/bin/ls"
+
+alias ls="ls -GF"
+export LSCOLORS="Exfxcxdxbxegedabagacad"
+# Enable for Linux:
+# export LS_COLORS="Exfxcxdxbxegedabagacad"
+
+
+alias dce="docker-compose exec -it"
+alias dcr="docker-compose run --rm"
+alias dlogs="docker-compose logs -f"
+dspec() {
+  docker exec $1 bundle exec rspec $2
+}
+# Examples:
+# dce vault bash
+# dcr vault bundle
+# dlogs
+# dlogs vault
+# dspec vault (runs all specs)
+# dspec vault spec/xyz/abc/blah_spec.rb
 
 # Git Branch Autocomplete
 autoload -Uz compinit && compinit
@@ -120,4 +132,4 @@ autoload -Uz compinit && compinit
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -1,0 +1,17 @@
+Tmux shortcuts
+
+
+leader + :    - type new command (can also type tmux command directly in command line)
+leader + :new - create new session
+leader + c    - create new window in current session
+leader + x    - destroy current window
+leader + $    - rename current session
+leader + n/p  - jump to next / prev window in current session
+leader + N    - jump to window N of current session
+leader + s    - show all sessions
+leader + |    - split current window vertically
+leader + -    - split current window horizontally
+leader + hjkl - navigate between currently split window
+
+
+tmux source ~/.tmux.conf - to refresh tmux config changes
