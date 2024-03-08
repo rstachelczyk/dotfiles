@@ -103,10 +103,13 @@ bindkey -M viins 'jj' vi-cmd-mode
 # alias ls="colorls --group-directories-first"
 # alias lss="/bin/ls"
 
-alias ls="ls -GF"
-export LSCOLORS="Exfxcxdxbxegedabagacad"
+alias ls="gls --color=auto --group-directories-first -GF"
+# alias ls="ls -GF"
+# export LSCOLORS="Exfxcxdxbxegedabagacad"
 # Enable for Linux:
-# export LS_COLORS="Exfxcxdxbxegedabagacad"
+#export LS_COLORS="Exfxcxdxbxegedabagacad"
+export LS_COLORS="di=0;34:ex=0;33:ln=0;36"
+#export LS_COLORS="di=0;34:ex=0;33"
 
 
 alias dce="docker-compose exec -it"

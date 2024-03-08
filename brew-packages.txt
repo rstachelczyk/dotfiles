@@ -3,6 +3,7 @@ Brew packages to install:
 tmux
 git
 zsh-syntax-highlighting
+coreutils
 
 brew install --cask rectangle
 brew install --cask devtoys
