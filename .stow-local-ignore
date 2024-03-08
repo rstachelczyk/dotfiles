@@ -1,0 +1,12 @@
+\.git
+\.gitignore
+
+\/scripts
+\/VSCode
+\/notes
+\/iTerm2
+\/i3
+
+^/README.*
+^/LICENSE.*
+
