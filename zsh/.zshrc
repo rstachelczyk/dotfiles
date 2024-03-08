@@ -103,6 +103,7 @@ bindkey -M viins 'jj' vi-cmd-mode
 # alias ls="colorls --group-directories-first"
 # alias lss="/bin/ls"
 
+
 alias ls="gls --color=auto --group-directories-first -GF"
 # alias ls="ls -GF"
 # export LSCOLORS="Exfxcxdxbxegedabagacad"
