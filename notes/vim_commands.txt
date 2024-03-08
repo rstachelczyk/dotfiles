@@ -36,14 +36,15 @@ zz - center view around your cursor
 
 ## Horizontal Movement
 
-w - jump horizontally right
-W - jump to next word after space (ignores periods and other symbols)
-b - jump horizontally left
-B - same as W but backwards
-e - jump to end of current word
-0w / ^ - first word of current line
-t - go to one before a certain character
-f - go to certain character
+w  	- jump horizontally right
+W  	- jump to next word after space (ignores periods and other symbols)
+b  	- jump horizontally left
+B  	- same as W but backwards
+e 	- jump to end of current word
+0w / ^  - first word of current line
+t 	- go to one before a certain character
+f 	- go to certain character
+f + n/N - go to next / previous of character
 $ - go to end of current line
 
 ##Useful Combinations
@@ -71,6 +72,9 @@ dt(char) - delete up to char
 cf(char) - delete up to and including char and go to insert mode
 df(char) - delete up to and including char
 
+U - turn current selection to uppercase
+u - turn current selection to lowercase
+
 * - jump to locations where certain word is being used
 
 ; - jump to next location of current char on current line
@@ -84,6 +88,8 @@ v - highlight
 vw - highlight current word
 v + w + Cmd D + c - will put a cursor at all highlighted instances of that word
 v + w + y + p - will copy highlighted word and p will paste in new location
+v + a + p - will highlight current paragraph / block
+v + i + p - will highlight current paragraph / block
 
 
 Marks & cursor jumping (** Can use ' instead of ` for these commands **)
