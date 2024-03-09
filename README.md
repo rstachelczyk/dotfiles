@@ -1,7 +1,32 @@
 # Dotfiles & Config
 A place for all my dotfiles and additional config / notes
 
-vim, zsh, iTerm, VS Code, etc
+vim, zsh, tmux, iTerm, VS Code, etc
+
+----------------------------------------------------------------
+# Setup
+
+
+1. Clone this repo into $HOME directory
+2. Ensure stow is already installed
+3. Run `stow .` inside of the cloned repo
+4. Profit
+
+**Note:** This only creates the symlinks for the config files and puts them in the proper place of the $HOME directory
+
+
+For more info on stow checkout [here](https://systemcrafters.net/managing-your-dotfiles/using-gnu-stow/)
+
+----------------------------------------------------------------
+# Updating Config Files
+
+There is a script called `syncDotfiles.sh` that lives in the `scripts/` directory
+
+This can be used to pull any new changes that have been pushed to the master branch
+
+It will automatically re-create the symlinks for the config files after pulling the changes
+
+
 
 ----------------------------------------------------------------
 
