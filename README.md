@@ -3,7 +3,8 @@ A place for all my dotfiles and additional config / notes
 
 vim, zsh, tmux, iTerm, VS Code, etc
 
-----------------------------------------------------------------
+<br>
+
 # Setup
 
 
@@ -17,7 +18,8 @@ vim, zsh, tmux, iTerm, VS Code, etc
 
 For more info on stow checkout [here](https://systemcrafters.net/managing-your-dotfiles/using-gnu-stow/)
 
-----------------------------------------------------------------
+<br>
+
 # Updating Config Files
 
 There is a script called `syncDotfiles.sh` that lives in the `scripts/` directory
@@ -27,8 +29,15 @@ This can be used to pull any new changes that have been pushed to the master bra
 It will automatically re-create the symlinks for the config files after pulling the changes
 
 
+<br>
 
-----------------------------------------------------------------
+# Removing Symlinks
+
+Simply run `stow -D .` to remove all the currently linked files from the $HOME directory
+
+<br>
+<br>
+<br>
 
 ### VS Code Keyboard Mappings
 
