@@ -73,7 +73,10 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git vi-mode)
+plugins=(git vi-mode nvm)
+
+zstyle ':omz:plugins:nvm' lazy yes
+export NVM_HOMEBREW=$(brew --prefix nvm)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -113,6 +116,7 @@ export LS_COLORS="di=0;34:ex=0;33:ln=0;36"
 #export LS_COLORS="di=0;34:ex=0;33"
 
 
+alias dcd="docker-compose down"
 alias dce="docker-compose exec -it"
 alias dcr="docker-compose run --rm"
 alias dlogs="docker-compose logs -f"
