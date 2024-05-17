@@ -5,8 +5,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-# CodeWhisperer pre block. Keep at the top of this file.
-[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.pre.zsh"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -95,49 +93,100 @@ source $ZSH/oh-my-zsh.sh
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
+# +---------+
+# | HISTORY |
+# +---------+
 
+setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
+setopt SHARE_HISTORY             # Share history between all sessions.
+setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
+setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
+setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
+setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
+setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
+setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 
-# ---------------------------------------------------------------
-# Config & Alias
+# +--------+
+# | COLORS |
+# +--------+
 
-bindkey -M viins 'jj' vi-cmd-mode
+# Override colors
+# eval "$(dircolors -b $ZDOTDIR/dircolors)"
 
-# Colorls (pretty slow)
-# alias ls="colorls --group-directories-first"
-# alias lss="/bin/ls"
-
-
-alias ls="gls --color=auto --group-directories-first -GF"
-# alias ls="ls -GF"
-# export LSCOLORS="Exfxcxdxbxegedabagacad"
 # Enable for Linux:
 #export LS_COLORS="Exfxcxdxbxegedabagacad"
 export LS_COLORS="di=0;34:ex=0;33:ln=0;36"
-#export LS_COLORS="di=0;34:ex=0;33"
 
+# +---------+
+# | ALIASES |
+# +---------+
 
-alias dcd="docker-compose down"
-alias dce="docker-compose exec -it"
-alias dcr="docker-compose run --rm"
-alias dlogs="docker-compose logs -f"
-dspec() {
-  docker exec $1 bundle exec rspec $2
-}
-# Examples:
-# dce vault bash
-# dcr vault bundle
-# dlogs
-# dlogs vault
-# dspec vault (runs all specs)
-# dspec vault spec/xyz/abc/blah_spec.rb
+source $DOTFILES/aliases/aliases
+
+# +-----------+
+# | VI KEYMAP |
+# +-----------+
+
+# Vi mode
+#bindkey -v
+bindkey -M viins 'jj' vi-cmd-mode
+#export KEYTIMEOUT=10
+
+# Change cursor
+VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
+VI_MODE_SET_CURSOR=true
+#source "$DOTFILES/zsh/plugins/cursor_mode"
+
+# Add Vi text-objects for brackets and quotes
+autoload -Uz select-bracketed select-quoted
+zle -N select-quoted
+zle -N select-bracketed
+for km in viopp visual; do
+  bindkey -M $km -- '-' vi-up-line-or-history
+  for c in {a,i}${(s..)^:-\'\"\`\|,./:;=+@}; do
+    bindkey -M $km $c select-quoted
+  done
+  for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
+    bindkey -M $km $c select-bracketed
+  done
+done
+
+# Emulation of vim-surround
+# autoload -Uz surround
+# zle -N delete-surround surround
+# zle -N add-surround surround
+# zle -N change-surround surround
+# bindkey -M vicmd cs change-surround
+# bindkey -M vicmd ds delete-surround
+# bindkey -M vicmd ys add-surround
+# bindkey -M visual S add-surround
+
+# if mode indicator wasn't setup by theme, define default, we'll leave INSERT_MODE_INDICATOR empty by default
+#if [[ -z "$MODE_INDICATOR" ]]; then
+#  MODE_INDICATOR='%B%F{red}<%b<<%f'
+#fi
+
+#function vi_mode_prompt_info() {
+#  echo "${${VI_KEYMAP/vicmd/$MODE_INDICATOR}/(main|viins)/$INSERT_MODE_INDICATOR}"
+#}
+
+# define right prompt, if it wasn't defined by a theme
+#if [[ -z "$RPS1" && -z "$RPROMPT" ]]; then
+#  RPS1='$(vi_mode_prompt_info)'
+#fi
+
+# +------------+
+# | COMPLETION |
+# +------------+
+
+source $DOTFILES/zsh/completion.zsh
+# autoload -Uz $DOTFILES/zsh/plugins/kubectl-completion/zsh-kubectl-completion
 
 # Git Branch Autocomplete
 autoload -Uz compinit && compinit
 
-# CodeWhisperer post block. Keep at the bottom of this file.
-[[ -f "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/Library/Application Support/codewhisperer/shell/zshrc.post.zsh"
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
