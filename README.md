@@ -8,8 +8,8 @@ vim, zsh, tmux, iTerm, VS Code, etc
 # Setup
 
 
-1. Clone this repo into $HOME directory using recurse-submodules option `git clone git@github.com:rstachelczyk/dotfiles.git --recurse-submodules`
-2. Ensure stow is already installed
+1. Clone this repo into $HOME directory using recurse-submodules option: `git clone <url> --recurse-submodules`
+2. Ensure `stow` and all other dependencies are already installed (including `neovim, tmux, ripgrep, coreutils, etc`)
 3. Run `stow .` inside of the cloned repo
 4. Profit
 
