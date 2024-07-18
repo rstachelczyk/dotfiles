@@ -60,6 +60,12 @@ dspec() {
 # dspec vault (runs all specs)
 # dspec vault spec/xyz/abc/blah_spec.rb
 
+# +------------+
+# | Networking |
+# +------------+
+
+alias tcurl='curl -w "\nTime to connect (TCP Handshake): %{time_connect}s\nTime to start transfer (Including server execution time): %{time_starttransfer}s\nTotal time: %{time_total}s\n"'
+
 # +------+
 # | tmux |
 # +------+
@@ -77,3 +83,5 @@ alias tmuxl='tmux list-sessions'
 alias doc="$HOME/Documents"
 alias dow="$HOME/Downloads"
 alias dot="$HOME/dotfiles"
+alias ic="$HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents"
+

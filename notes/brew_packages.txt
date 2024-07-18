@@ -4,6 +4,12 @@ tmux
 git
 zsh-syntax-highlighting
 coreutils
+stow
+nvm
+awscli
+neovim
+ripgrep
+go
 
 brew install --cask rectangle
 brew install --cask devtoys
