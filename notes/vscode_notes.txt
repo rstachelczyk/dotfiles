@@ -1,0 +1,37 @@
+Notes for VS Code setup
+
+The main thing that needs configuration is the vim keybinds.
+
+We need to install the Vim plugin / extension. Here is a link for the docs that are very helpful: https://marketplace.visualstudio.com/items?itemName=vscodevim.vim
+
+Here are the key things to note from there
+
+----------------------------------------------------------------------------------------------------------------------------
+1. Debugging keybinds that aren't working
+
+Adjust the extension's logging level to 'debug' and open the Output window:
+
+1. Run Developer: Set Log Level from the command palette.
+2. Select Vim, then Debug
+3. Run Developer: Reload window
+4. In the bottom panel, open the Output tab and select Vim from the dropdown selection.
+
+----------------------------------------------------------------------------------------------------------------------------
+2. VS Code has a lot of nifty tricks and we try to preserve some of them:
+
+gd - jump to definition.
+gq - on a visual selection reflow and wordwrap blocks of text, preserving commenting style. Great for formatting documentation comments.
+gb - adds another cursor on the next word it finds which is the same as the word under the cursor.
+af - visual mode command which selects increasingly large blocks of text. For example, if you had "blah (foo [bar 'ba|z'])" then it would select 'baz' first. If you pressed af again, it'd then select [bar 'baz'], and if you did it a third time it would select "(foo [bar 'baz'])".
+gh - equivalent to hovering your mouse over wherever the cursor is. Handy for seeing types and error messages without reaching for the mouse!
+
+----------------------------------------------------------------------------------------------------------------------------
+3. Mac specific setup
+
+To enable key-repeating, execute the following in your Terminal, log out and back in, and then restart VS Code:
+
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false      # For VS Code Insider
+defaults write com.vscodium ApplePressAndHoldEnabled -bool false                      # For VS Codium
+defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool false   # For VS Codium Exploration users
+defaults delete -g ApplePressAndHoldEnabled                                           # If necessary, reset global default
