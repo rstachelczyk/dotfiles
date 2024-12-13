@@ -92,15 +92,33 @@
     {
       "before": ["<leader>", "/"],
       "commands": [
-        "editor.action.addCommentLine"
+        "editor.action.commentLine"
       ]
     },
     {
-      "before": ["<leader>", "?"],
-      "commands": [
-        "editor.action.removeCommentLine"
-      ]
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"]
     },
+    {
+      "before": ["<C-h>"],
+      "commands": ["workbench.action.previousEditorInGroup"]
+    },
+    {
+      "before": ["<C-l>"],
+      "commands": ["workbench.action.nextEditorInGroup"]
+    },
+    {
+      "before": ["<leader>", "p"],
+      "commands": ["workbench.action.quickOpen"]
+    },
+    {
+      "before": ["<leader>", "n", "e"],
+      "commands": ["editor.action.marker.nextInFiles"]
+    },
+    {
+      "before": ["<leader>", "p", "e"],
+      "commands": ["editor.action.marker.prevInFiles"]
+    }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
     {
@@ -142,13 +160,7 @@
     {
       "before": ["<leader>", "/"],
       "commands": [
-        "editor.action.addCommentLine"
-      ]
-    },
-    {
-      "before": ["<leader>", "?"],
-      "commands": [
-        "editor.action.removeCommentLine"
+        "editor.action.commentLine"
       ]
     },
     {
@@ -157,6 +169,20 @@
         "editor.action.formatSelection"
       ]
     }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": [">"],
+      "commands": [
+        "editor.action.indentLines"
+      ]
+    },
+    {
+      "before": ["<"],
+      "commands": [
+          "editor.action.outdentLines"
+      ]
+    },
   ],
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
