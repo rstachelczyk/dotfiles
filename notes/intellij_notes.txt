@@ -1,0 +1,13 @@
+The main thing here is just setting up vim again. The dotfile repo should handle this seemlessly once the ideavim config file is symlinked to the home directory.
+
+All the plugins I currently use:
+
+Plugin List
+- IdeaVim
+- JPA Buddy
+- One Dark Theme
+- Checkstyle-IDEA
+- PMD
+- CSV Editor
+- GitHub Copilot (With company license)
+

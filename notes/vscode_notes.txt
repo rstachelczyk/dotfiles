@@ -35,3 +35,18 @@ defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false
 defaults write com.vscodium ApplePressAndHoldEnabled -bool false                      # For VS Codium
 defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool false   # For VS Codium Exploration users
 defaults delete -g ApplePressAndHoldEnabled                                           # If necessary, reset global default
+
+
+----------------------------------------------------------------------------------------------------------------------------
+Plugin List:
+- Vim
+- Docker ?
+- Dev Containers
+- GitLens
+- ESLint
+- Prettier
+- Rainbow CSV
+- Auto Rename Tag Jun Han
+- Github Copilot (If company license)
+
+Any language specific plugins
