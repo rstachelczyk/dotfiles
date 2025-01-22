@@ -79,6 +79,13 @@ plugins=(git vi-mode nvm)
 zstyle ':omz:plugins:nvm' lazy yes
 export NVM_HOMEBREW=$(brew --prefix nvm)
 
+# Eagerly load `nvm` for Neovim or other contexts where it's required
+if [[ $TERM_PROGRAM == "nvim" || $NVIM_LISTEN_ADDRESS ]]; then
+  export NVM_DIR=$(brew --prefix nvm)
+  [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+  nvm use default > /dev/null 2>&1
+fi
+
 source $ZSH/oh-my-zsh.sh
 
 # export MANPATH="/usr/local/man:$MANPATH"
