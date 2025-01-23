@@ -7,15 +7,8 @@ function main() {
   installBrewPackages
   installOhMyZsh
   installPowerlevel10k
+  removeConflictingFiles
   createSymlinks
-}
-
-function createSymlinks() {
-
-  echo "Inserting symlinks with stow"
-  stow .
-  echo "Symlinks created"
-  
 }
 
 function installBrewPackages() {
@@ -39,7 +32,22 @@ function installPowerlevel10k() {
   else
     echo "powerlevel10k already installed... skipping install"
   fi
+}
 
+function removeConflictingFiles() {
+  if [ -f "$HOME/.zshrc" ]; then
+    echo "Removing .zshrc from $HOME because it will cause issues with stow"
+    rm -f $HOME/.zshrc
+  else
+    echo ".zshrc is not present... skipping delete"
+  fi
+}
+
+function createSymlinks() {
+  echo "Inserting symlinks with stow"
+  if stow .; then
+    echo "Symlinks created"
+  fi
 }
 
 main
