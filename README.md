@@ -18,6 +18,19 @@ and finally create the necessary symlinks into the $HOME directory
 
 For more info on stow checkout [here](https://systemcrafters.net/managing-your-dotfiles/using-gnu-stow/)
 
+## iTerm Setup
+
+1. Open iTerm2 and go to settings
+2. Go to the profiles tab
+3. Click the `Other Actions..` button
+4. Select `Import JSON Profiles...` button
+5. Select `iTerm2/Default iTerm2 Profile.json` profile from within this repo
+6. Select the profile that was just imported
+7. Navigate to the `Colors` tab on the right hand side of the window
+8. Select `Breeze` (or whichever color theme) from `iTerm2/color-themes`
+9. Select the profile and click `Other Actions...` + `Set as Default`
+10. Restart application and Profit
+
 For more information on application-specific setup, look in the `/notes` directory.
 
 <br>
