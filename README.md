@@ -18,6 +18,8 @@ and finally create the necessary symlinks into the $HOME directory
 
 For more info on stow checkout [here](https://systemcrafters.net/managing-your-dotfiles/using-gnu-stow/)
 
+For more information on application-specific setup, look in the `/notes` directory.
+
 <br>
 
 # Updating Config Files
