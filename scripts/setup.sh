@@ -4,25 +4,15 @@ SCRIPT_DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 ROOT_DIR="$(cd "${SCRIPT_DIR}/.." && pwd )"
 
 function main() {
+  installBrewPackages
   installOhMyZsh
   installPowerlevel10k
-  setup
+  removeConflictingFiles
+  createSymlinks
 }
 
-function setup() {
-
-  echo "Inserting .zshrc symlink"
-  ln -f $ROOT_DIR/zsh/.zshrc ~/.zshrc
-
-  echo "Inserting .p10k.zsh symlink"
-  ln -f $ROOT_DIR/zsh/.p10k.zsh ~/.p10k.zsh
-
-  echo "Inserting .vimrc symlink"
-  ln -f $ROOT_DIR/vim/.vimrc ~/.vimrc
-
-  echo "Inserting .tmuxconfig symlink"
-  ln -f $ROOT_DIR/tmux/.tmux.config ~/.tmux.conf
-  
+function installBrewPackages() {
+  brew bundle
 }
 
 function installOhMyZsh() {
@@ -42,7 +32,22 @@ function installPowerlevel10k() {
   else
     echo "powerlevel10k already installed... skipping install"
   fi
+}
 
+function removeConflictingFiles() {
+  if [ -f "$HOME/.zshrc" ]; then
+    echo "Removing .zshrc from $HOME because it will cause issues with stow"
+    rm -f $HOME/.zshrc
+  else
+    echo ".zshrc is not present... skipping delete"
+  fi
+}
+
+function createSymlinks() {
+  echo "Inserting symlinks with stow"
+  if stow .; then
+    echo "Symlinks created"
+  fi
 }
 
 main

@@ -9,14 +9,16 @@ vim, zsh, tmux, iTerm, VS Code, etc
 
 
 1. Clone this repo into $HOME directory using recurse-submodules option: `git clone <url> --recurse-submodules`
-2. Ensure `stow` and all other dependencies are already installed (including `neovim, tmux, ripgrep, coreutils, etc`)
-3. Run `stow .` inside of the cloned repo
-4. Profit
+2. Run `./scripts/setup.sh`
+3. Profit
 
-**Note:** This only creates the symlinks for the config files and puts them in the proper place of the $HOME directory
+**Note:** The setup script will download homebrew packages specified in the Brewfile, install oh-my-zsh & powerlevel10k,
+and finally create the necessary symlinks into the $HOME directory
 
 
 For more info on stow checkout [here](https://systemcrafters.net/managing-your-dotfiles/using-gnu-stow/)
+
+For more information on application-specific setup, look in the `/notes` directory.
 
 <br>
 

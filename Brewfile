@@ -12,3 +12,4 @@ brew "zsh-syntax-highlighting"
 
 cask "devtoys"
 cask "rectangle"
+cask "font-hack-nerd-font"
