@@ -118,6 +118,10 @@
     {
       "before": ["<leader>", "p", "e"],
       "commands": ["editor.action.marker.prevInFiles"]
+    },
+    {
+      "before": ["<leader>", "r"],
+      "commands": ["editor.action.rename"]
     }
   ],
   "vim.visualModeKeyBindingsNonRecursive": [
@@ -202,3 +206,4 @@
   "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/Users/rxstachelczyk/.vscode/extensions/vscjava.vscode-lombok-1.0.1/server/lombok.jar\"",
   "java.project.importOnFirstTimeStartup": "automatic"
 }
+
