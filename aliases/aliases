@@ -87,9 +87,11 @@ alias tmuxl='tmux list-sessions'
 # +----------+
 
 # Folders
-# alias work="$HOME/workspace"
+alias work="$HOME/code"
 alias doc="$HOME/Documents"
 alias dow="$HOME/Downloads"
 alias dot="$HOME/dotfiles"
 alias ic="$HOME/Library/Mobile\ Documents/iCloud~md~obsidian/Documents"
+
+alias aliases="cat $HOME/dotfiles/aliases/aliases"
 
