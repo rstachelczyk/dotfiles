@@ -18,6 +18,16 @@ and finally create the necessary symlinks into the $HOME directory
 
 For more info on stow checkout [here](https://systemcrafters.net/managing-your-dotfiles/using-gnu-stow/)
 
+## Tmux Setup
+
+Tmux plugins are managed by [TPM](https://github.com/tmux-plugins/tpm) and are **not** checked into this repo (see `.gitignore`). After cloning the dotfiles and running the setup script:
+
+1. Install TPM: `git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm`
+2. Start tmux: `tmux`
+3. Install plugins: press `prefix + I` (capital I) to fetch the plugins listed in `tmux.conf`
+
+TPM will clone `tmux-resurrect`, `tmux-continuum`, and any other plugins declared via `set -g @plugin` in the config.
+
 ## iTerm Setup
 
 1. Open iTerm2 and go to settings

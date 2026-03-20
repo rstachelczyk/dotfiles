@@ -1,6 +1,10 @@
 # Add homebrew to PATH
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+if command -v mise &> /dev/null; then
+  eval "$(mise activate zsh)"
+fi
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
