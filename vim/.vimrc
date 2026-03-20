@@ -1,5 +1,7 @@
 let mapleader = " "
 
+let g:tmux_navigator_disable_netrw_workaround = 1
+
 imap jj <ESC>
 
 " Move a line of text using ALT+[jk] or Command+[jk] on mac
