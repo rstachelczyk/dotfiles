@@ -44,10 +44,8 @@ function removeConflictingFiles() {
 }
 
 function createSymlinks() {
-  echo "Inserting symlinks with stow"
-  if stow .; then
-    echo "Symlinks created"
-  fi
+  echo "Creating symlinks with stow"
+  "${SCRIPT_DIR}/stow.sh" all
 }
 
 main
