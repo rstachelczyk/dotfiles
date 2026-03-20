@@ -15,4 +15,5 @@ cask "devtoys"
 cask "rectangle"
 cask "font-hack-nerd-font"
 cask "claude-code"
+cask "ghostty"
 
