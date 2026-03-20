@@ -1,5 +1,3 @@
-tap "homebrew/bundle"
-
 brew "awscli"
 brew "coreutils"
 brew "git"
