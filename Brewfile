@@ -14,6 +14,8 @@ brew 'fd'
 brew 'zoxide'
 brew 'eza'
 brew 'starship'
+brew 'bat'
+brew 'imagemagick'
 
 cask 'devtoys'
 cask 'font-hack-nerd-font'
