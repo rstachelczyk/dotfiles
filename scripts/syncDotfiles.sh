@@ -23,6 +23,11 @@ echo
 git pull origin master
 echo
 
+echo -e "${BLUE}Updating submodules...${NC}"
+echo
+git submodule update --init --recursive
+echo
+
 if [[ $needs_pop -eq 1 ]]; then
     echo -e "${BLUE}Popping stashed changes...${NC}"
     echo
