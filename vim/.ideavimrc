@@ -1,2 +1,99 @@
+" IdeaVim configuration.
+"
+" ~/.vimrc holds the settings that plain Vim and IdeaVim share (mapleader, the
+" blackhole-register c/d/x/p scheme, etc). It is sourced first so everything
+" below can override it.
 source ~/.vimrc
 
+" visual select and then S
+set surround
+
+" Highlight as you type your search
+set incsearch
+
+" Make searches case-insensitive
+set ignorecase
+set clipboard=unnamedplus,unnamed,ideaput
+set idearefactormode=keep
+set ideajoin
+
+" Completion accepts on Ctrl-Y only, matching blink.cmp in Neovim.
+" Insert mode hands Ctrl-Y to the IDE so it can accept an inline proposal, the
+" lookup popup gets it forwarded too, and Enter/Tab go back to Vim so they
+" insert a newline and indent. The Ctrl-Y bindings themselves live in
+" Settings > Keymap.
+sethandler <C-Y> i:ide
+set idealookupkeys+=<C-Y>
+set idealookupkeys-=<Enter>
+set idealookupkeys-=<Tab>
+
+map <leader>p <Action>(GotoFile)
+map <leader>f <Action>(FindInPath)
+map <leader>b <Action>(Switcher)
+nnoremap <leader>T :action ActivateTerminalToolWindow<CR>
+nnoremap <leader>+ :action OptimizeImports<CR>
+nnoremap <leader>g :action Generate<CR>
+nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+nnoremap ,b :action ToggleLineBreakpoint<CR>
+nnoremap <Leader>q :action CloseContent<CR>
+nnoremap <Leader>jf :action HideAllWindows<CR>
+nnoremap <Leader>of :action OpenFile<CR>
+nmap <C-o>      <Action>(Back)
+nmap <C-i>      <Action>(Forward)
+
+" Go to implimentation
+nmap gi :action GotoImplementation<CR>
+
+" Documentation under the cursor
+nmap K <Action>(QuickJavaDoc)
+
+" vim-rails style alternate file: source <-> spec
+nmap <leader>av <Action>(GotoTest)
+
+" Run the test configuration for whatever the caret is in
+nmap <leader>tt <Action>(RunClass)
+
+" Navigate Errors
+nnoremap <leader>ne :action GotoNextError<CR>
+nnoremap <leader>pe :action GotoPreviousError<CR>
+
+" Comment Line / Selected Lines
+nnoremap <silent> <leader>/ :action CommentByLineComment<CR>
+vnoremap <silent> <leader>/ :action CommentByLineComment<CR>
+
+" Move lines up or down
+nnoremap <A-j> :action MoveLineDown<CR>
+nnoremap <A-k> :action MoveLineUp<CR>
+vnoremap <A-j> :action MoveLineDown<CR>
+vnoremap <A-k> :action MoveLineUp<CR>
+
+" Switch between tabs
+nnoremap <c-h> :action PreviousTab<CR>
+nnoremap <c-l> :action NextTab<CR>
+nnoremap <c-m> :action MoveEditorToOppositeTabGroup<CR>
+
+" attempt to recreate Cmd + D feature in VSCode
+" vmap <D-d> <C-D-g>
+vmap <D-d> :action SelectNextOccurrence<CR>
+
+" Split editor vertically
+nnoremap <Leader>ss :action SplitVertically<cr>
+nnoremap <Leader>us :action Unsplit<cr>
+
+" Shift between split windows
+" <ctrl + ww>
+
+" nnoremap <silent> <C-Tab> :action ActivateTerminalToolWindow<CR>
+
+" source ideavimrc file
+nnoremap <leader>si :source ~/.ideavimrc<CR>
+
+if &ide =~? 'intellij idea'
+    " some mappings and options for IntelliJ IDEA
+
+    " Java - print
+    nmap <leader>jp ddkA<ENTER>System.out.println();<ESC>hi
+
+elseif &ide =~? 'pycharm'
+  " PyCharm specific mappings and options
+endif
